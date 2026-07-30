@@ -6,8 +6,7 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
   const [cartItem, setCartItem] = useState({});
 
-  const url = "https://tomato-food-delivery-app-bksk.onrender.com";
-
+const url = "https://tomato-food-delivery-app-bksk.onrender.com";
   // Load token from localStorage when app starts
   const [token, setToken] = useState(localStorage.getItem("token") || "");
 
