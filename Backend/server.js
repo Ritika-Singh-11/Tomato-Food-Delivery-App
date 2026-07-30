@@ -13,7 +13,7 @@ const port = process.env.PORT || 4000;
 // middleware
 app.use(express.json())
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: "https://tomato-food-delivery-app-nn5y.vercel.app",
     credentials: true,
   }))
 
