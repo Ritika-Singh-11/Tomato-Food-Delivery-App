@@ -21,7 +21,7 @@ const placeOrder = async (req, res) => {
     await newOrder.save();
 
     const options = {
-      amount: req.body.amount * 100*80,
+      amount: req.body.amount * 100,
       currency: "INR",
       receipt: `receipt_${newOrder._id}`,
     };

@@ -58,8 +58,14 @@ const allowedOrigins = process.env.CORS_ORIGIN
 
 app.use(cors({
     origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // allow tools like Postman/curl
-      if (allowedOrigins.includes(origin)) {
+      if (!origin) return callback(null, true);
+
+      const isAllowed =
+        allowedOrigins.includes(origin) ||
+        /^https:\/\/tomato-food-delivery-app-nn5y.*\.vercel\.app$/.test(origin) ||
+        /^https:\/\/tomato-food-delivery-app-ebon.*\.vercel\.app$/.test(origin);
+
+      if (isAllowed) {
         return callback(null, true);
       }
       return callback(new Error("Not allowed by CORS: " + origin));
